@@ -5,7 +5,17 @@
 	id="WebApp_ID" version="2.5">
 	<display-name>jpetstore-follow</display-name>
 
-	<!-- START: web tier, stripes -->
+	<!-- START: spring root context -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:jpetstore-context.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- END: spring root context -->
+
+	<!-- START: web layer, stripes -->
 	<filter>
 		<display-name>Stripes Filter</display-name>
 		<filter-name>StripesFilter</filter-name>
@@ -13,6 +23,10 @@
 		<init-param>
 			<param-name>ActionResolver.Packages</param-name>
 			<param-value>org.mybatis.jpetstore.action</param-value>
+		</init-param>
+		<init-param>
+			<param-name>Interceptor.Classes</param-name>
+			<param-value>net.sourceforge.stripes.integration.spring.SpringInterceptor</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>
@@ -29,7 +43,7 @@
 		<servlet-name>StripesDispatcher</servlet-name>
 		<url-pattern>*.action</url-pattern>
 	</servlet-mapping>
-	<!-- END: web tier, stripes -->
+	<!-- END: web layer, stripes -->
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

@@ -7,9 +7,7 @@ public class Pet implements Serializable {
 	private static final long serialVersionUID = 5485490223918459690L;
 	
 	private long id;
-	
 	private String name;
-	
 	private String desc;
 
 	public Pet() {

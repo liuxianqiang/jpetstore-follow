@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.mybatis.jpetstore.dao.PetDAO">
+	
+	<select id="selectAll" resultType="Pet">
+		select * from pet
+	</select>
+	
+	<select id="selectById" parameterType="long" resultType="Pet">
+		select * from pet where id = #{id, jdbcType=BIGINT}
+	</select>
+
+	<select id="selectById2" parameterType="long" resultType="HashMap">
+		select id, name, desc from pet where id = #{id, jdbcType=BIGINT}
+	</select>
+	
+	<insert id="insert" parameterType="Pet">
+		insert into pet values (#{id, jdbcType=BIGINT}, #{name, jdbcType=VARCHAR}, #{desc, jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="update" parameterType="Pet">
+		update pet set name = #{name, jdbcType=VARCHAR}, desc= #{desc, jdbcType=VARCHAR}
+		where id = #{id, jdbcType=BIGINT}
+	</update>
+	
+	<delete id="delete" parameterType="long">
+		delete from pet where id = #{id, jdbcType=BIGINT}
+	</delete>
+	
+</mapper>

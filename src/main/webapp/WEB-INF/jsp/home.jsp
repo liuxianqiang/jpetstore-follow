@@ -7,6 +7,7 @@
 <title>This is our jpetstore home</title>
 </head>
 <body>
-This is our jpetstore home
+<h3>DEMO</h3>
+${actionBean.demo}
 </body>
 </html>
