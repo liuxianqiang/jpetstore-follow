@@ -1,6 +1,5 @@
 jpetstore-follow
 ================
-https://github.com/liuxianqiang/jpetstore-follow
 
 A simple follow of jpetstore-6 [https://github.com/mybatis/jpetstore-6/]
 A simple pet CRUD
